@@ -18,7 +18,7 @@ build: clean
 	helm package . --version ${VERSION}
 
 push: build
-	helm push ./helm-generic-application-${VERSION}.tgz oci://${REGISTRY}/${REPOSITORY}
+	helm push ./sia-backend-${VERSION}.tgz oci://${REGISTRY}/${REPOSITORY}
 
 helm-unittest-plugin:
 	helm plugin list unittest | grep "${HELM_UNITTEST_VERSION}" || ( helm plugin remove unittest; helm plugin install https://github.com/helm-unittest/helm-unittest --version ${HELM_UNITTEST_VERSION} )
